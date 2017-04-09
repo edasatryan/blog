@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   # adds a new article
   post '/api/v1/articles' => 'api/v1/article#add_article'
 
-
 end
