@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   get '/', to: 'home#index'
 
-  get '/api/v1/articles' => 'api/v1/article#add_article'
+  # adds a new article
+  post '/api/v1/articles' => 'api/v1/article#add_article'
 
 
 end
