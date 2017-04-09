@@ -12,16 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20170409130545) do
 
-  create_table "article", force: :cascade do |t|
-    t.string "title",   collation: "nocase"
-    t.string "content", collation: "nocase"
-    t.string "video",   collation: "nocase"
-  end
-
   create_table "articles", force: :cascade do |t|
-    t.string "title",   collation: "nocase"
-    t.string "content", collation: "nocase"
-    t.string "video",   collation: "nocase"
+    t.string "title",      collation: "nocase"
+    t.string "content",    collation: "nocase"
+    t.string "image_name", collation: "nocase"
+    t.string "video",      collation: "nocase"
   end
 
 end
