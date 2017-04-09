@@ -1,0 +1,10 @@
+<div class="col-sm-4 offset-sm-1 blog-sidebar">
+  <div class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+      <% articles.each do |article| %>
+          <li><a href="#"><%= article.title %></a></li>
+      <% end %>
+    </ol>
+  </div>
+</div><!-- /.blog-sidebar -->

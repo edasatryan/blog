@@ -10,11 +10,7 @@ class Api::V1::ArticleController < Api::V1::ApplicationApiController
     success DeleteArticleCommand.new(params).execute
   end
 
-  def edit_article
-    success DeleteCityCommand.new(params).execute
-  end
-
-  def get_article
-    success DeleteCityCommand.new(params).execute
+  def articles
+    success Article.all
   end
 end
