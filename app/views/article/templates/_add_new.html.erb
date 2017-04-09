@@ -1,11 +1,27 @@
 <h3>add new</h3>
 
-<input type="text" id="title" />
-<input type="text" id="content" />
-<input type="text" id="video" />
-<button type="button" id="addnew" class="" onclick="addNewArticle();"  data-dismiss="alert" aria-label="Close">
-  Add new
-</button>
+<!--<input type="text" id="title" />-->
+<!--<input type="text" id="content" />-->
+<!--<input type="text" id="video" />-->
+<!--<button type="button" id="addnew" class="" onclick="addNewArticle();"  data-dismiss="alert" aria-label="Close">-->
+  <!--Add new-->
+<!--</button>-->
 
+<%= form_for @form_name , :html => { :multipart => true , :remote => true} do |f| %>
 
+    <div>
+      <label for="title"></label>
+      <!--<input type="text" name="title">-->
+      <%= f.text_field :title %>
+      <%= f.text_field :content %>
+      <%= f.text_field :video %>
+    </div>
+    <div class="field">
+      <%= f.label :file %>
+      <%= f.file_field :file %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
 

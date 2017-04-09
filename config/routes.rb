@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/', to: 'home#index'
+  get '/home', to: 'home#index'
 
   # get all articles
   get '/api/v1/articles' => 'api/v1/article#articles'
@@ -14,4 +15,6 @@ Rails.application.routes.draw do
   # adds a new article
   delete '/api/v1/articles/:id' => 'api/v1/article#delete_article'
 
+  get '/article' => 'article#show'
+  post '/article' => 'article#create'
 end
