@@ -1,3 +1,19 @@
 <div class="col-sm-7 blog-main">
-  Left Part
+  <% articles.each do |article| %>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= image_tag(article.image_name, :alt => article.image_name, :width => "100%") %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= article.user %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= article.content %>
+        </div>
+      </div>
+  <% end %>
 </div><!-- /.blog-main -->
