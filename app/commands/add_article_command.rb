@@ -6,6 +6,7 @@ class AddArticleCommand < ParentCommand
     @article.title = options['title']
     @article.content = options['content']
     @article.video = options['video']
+    @article.image_name = options['image_name']
   end
 
   # Gets JSON representation of this instance.

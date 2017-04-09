@@ -7,7 +7,10 @@ class Articles < ActiveRecord::Migration[5.0]
       # Content
       t.string :content, collation: 'nocase'
 
-      # Content
+      # Image Name
+      t.string :image_name, collation: 'nocase'
+
+      # Video
       t.string :video, collation: 'nocase'
       end
     end
