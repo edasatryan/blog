@@ -4,7 +4,7 @@ class Users < ActiveRecord::Migration[5.0]
       t.string :first_name
       t.string :last_name
       t.string :username
-      t.string :password
+      t.string :password_digest
 
       t.timestamps
     end

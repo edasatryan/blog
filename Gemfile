@@ -65,3 +65,5 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 
 # Upload images for article
 gem 'remotipart', '~> 1.2'
+
+gem 'bcrypt'

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root "home#index"
 
   get '/', to: 'home#index'
   get '/home', to: 'home#index'
@@ -29,4 +30,8 @@ Rails.application.routes.draw do
   get '/article' => 'article#show'
   post '/article' => 'article#create'
   delete '/article' => 'article#delete'
+
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  get '/logout',  to: 'sessions#destroy'
 end
