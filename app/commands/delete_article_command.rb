@@ -18,7 +18,15 @@ class DeleteArticleCommand < ParentCommand
   #
   def do_execute
     if @id
-      Article.where(id: @id).delete_all
+
+      # get article by id
+      @article = Article.where(id: @id).first!
+
+      # delete file from system
+      File.delete(Rails.application.config.x.file.path + '/' + @article.image_name)
+
+      # delete article from database
+      @article.destroy
     else
       0
     end

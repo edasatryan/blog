@@ -1,6 +1,7 @@
 class ArticleController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  #
   def show
     @form_name = 'article'
   end
@@ -10,7 +11,7 @@ class ArticleController < ApplicationController
 
     begin
       option = initialize_article(params[:article])
-      article_id = AddArticleCommand.new(option).execute
+      AddArticleCommand.new(option).execute
       save_file(file,option['image_name'])
     rescue
       raise
@@ -21,7 +22,7 @@ class ArticleController < ApplicationController
 
   private
   def save_file (file,file_name)
-    directory = 'app/assets/images/upload'
+    directory = Rails.application.config.x.file.path
     name = file_name
     path = File.join(directory, name)
     File.open(path, 'wb') { |f| f.write(file.read) }

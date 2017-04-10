@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index'
 
   # get all articles
-  get '/api/v1/articles' => 'api/v1/article#articles'
+  get '/api/v1/articles' => 'api/v1/article_api#articles'
 
   # adds a new article
-  post '/api/v1/articles' => 'api/v1/article#add_article'
+  post '/api/v1/articles' => 'api/v1/article_api#add_article'
 
   # adds a new article
-  delete '/api/v1/articles/:id' => 'api/v1/article#delete_article'
+  delete '/api/v1/articles/:id' => 'api/v1/article_api#delete_article'
 
   get '/article' => 'article#show'
   post '/article' => 'article#create'
