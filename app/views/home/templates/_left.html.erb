@@ -1,6 +1,6 @@
 <div class="col-sm-8 blog-main ">
   <% articles.each do |article| %>
-      <div class="widget">
+      <div id = "article<%= article.id %>" class="widget">
         <% unless article.image_name.blank? %>
           <div class="row">
             <div class="col-sm-12">
@@ -31,7 +31,6 @@
             </div>
           </div>
         </div>
-
       </div>
 
   <% end %>
