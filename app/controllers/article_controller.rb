@@ -21,7 +21,7 @@ class ArticleController < ApplicationController
 
   private
   def save_file (file,file_name)
-    directory = 'public/images/upload'
+    directory = 'app/assets/images/upload'
     name = file_name
     path = File.join(directory, name)
     File.open(path, 'wb') { |f| f.write(file.read) }

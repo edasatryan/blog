@@ -1,19 +1,31 @@
-<div class="col-sm-7 blog-main">
+<div class="col-sm-8 blog-main ">
   <% articles.each do |article| %>
-      <div class="row">
-        <div class="col-sm-12">
-          <%= image_tag(article.image_name, :alt => article.image_name, :width => "100%") %>
+      <div class="widget">
+        <div class="row">
+          <div class="col-sm-12">
+            <%= image_tag('upload/' + article.image_name, :alt => article.image_name, :width => "100%") %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <%= article.user %>
+        <div class="sub-widget">
+          <div class="row ">
+            <div class="col-sm-12">
+              <h2 class="entry-title">
+                <%= article.title %>
+              </h2>
+              <%= article.user %>
+              <div class="posted-on">
+                By Kristjan Toop  on Feb 14, 2017  in Investing tips
+              </div>
+            </div>
+          </div>
+          <div class="row marde-top-10">
+            <div class="col-sm-12">
+              <span class="blog-content"><%= article.content %></span>
+            </div>
+          </div>
         </div>
+
       </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <%= article.content %>
-        </div>
-      </div>
+
   <% end %>
 </div><!-- /.blog-main -->
