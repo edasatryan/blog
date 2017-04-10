@@ -1,27 +1,45 @@
-<h3>add new</h3>
-
 <!--<input type="text" id="title" />-->
 <!--<input type="text" id="content" />-->
 <!--<input type="text" id="video" />-->
 <!--<button type="button" id="addnew" class="" onclick="addNewArticle();"  data-dismiss="alert" aria-label="Close">-->
-  <!--Add new-->
+<!--Add new-->
 <!--</button>-->
 
-<%= form_for @form_name , :html => { :multipart => true , :remote => true} do |f| %>
+  <%= form_for @form_name, :html => {:multipart => true, :remote => true} do |f| %>
+      <div class="form-group">
+        <label for="title">Title*</label>
 
-    <div class="col-sm-12">
-      <label for="title"></label>
-      <!--<input type="text" name="title">-->
-      <%= f.text_field :title %>
-      <%= f.text_field :content %>
-      <%= f.text_field :video %>
-    </div>
-    <div class="field">
+        <div class="controls">
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="title">Content*</label>
+        <div class="controls">
+          <%= f.text_field :content, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="title">Video URL*</label>
+        <div class="controls">
+          <%= f.text_field :video, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="field">
+
+
+      </div>
+    <div class="form-group">
       <%= f.label :file %>
-      <%= f.file_field :file %>
+      <div class="controls">
+        <%= f.file_field :file, class: 'form-control' %>
+      </div>
     </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-<% end %>
+      <div class="actions">
+        <%= f.submit class: 'btn btn-success'%>
+      </div>
+  <% end %>
+
+
 
