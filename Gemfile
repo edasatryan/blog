@@ -67,3 +67,6 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'remotipart', '~> 1.2'
 
 gem 'bcrypt'
+
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
