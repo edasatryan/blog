@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Hi <%= @user.first_name %>!</h1>
+<p>
+  This is to inform you, that you have been invited to http://localhost:3000/.
+  <br/>
+  To proceed with registration press on the link below, or just copy and paste in your favorite browser's address:
+  <%= link_to @registration_path, @registration_path %>
+</p>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div class="container">
+
+  <div class="">
+    <h3>Invite new members</h3>
+
+    <!--%= render 'form', user: @user %-->
+
+    <form accept-charset="UTF-8" action="/users/create" method="post">
+      <input type="text" name="user[first_name]" value="" placeholder="Name" />
+      <input type="text" name="user[email]" value="" placeholder="Email" />
+      <input type="submit" value="Invite!"/>
+    </form>
+  </div><!-- /.row -->
+
+</div><!-- /.container -->

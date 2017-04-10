@@ -22,7 +22,13 @@ ssl: 'true'
 tls: 'true'
 
 development:
-
+  mail_from_address: 'ruby.rails@inbox.ru'
+  address: 'smtp.mail.ru'
+  port: '465'
+  domain: 'mail.ru'
+  authentication: 'plain'
+  user_name: 'ruby.rails@inbox.ru'
+  password: 'qwe123asd'
 
 production:
   mail_from_address: ''
