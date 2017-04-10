@@ -1,20 +1,27 @@
 <div class="col-sm-8 blog-main ">
   <% articles.each do |article| %>
       <div class="widget">
-        <div class="row">
-          <div class="col-sm-12">
-            <%= image_tag('upload/' + article.image_name, :alt => article.image_name, :width => "100%") %>
+        <% unless article.image_name.blank? %>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= image_tag('upload/' + article.image_name, :alt => article.image_name, :width => "100%") %>
+            </div>
           </div>
-        </div>
+        <% end %>
         <div class="sub-widget">
           <div class="row ">
             <div class="col-sm-12">
               <h2 class="entry-title">
                 <%= article.title %>
               </h2>
-              <%= article.user %>
               <div class="posted-on">
-                By Kristjan Toop  on Feb 14, 2017  in Investing tips
+                By
+                <% unless article.user.blank? %>
+                    <%= [article.user.first_name, article.user.last_name].join(', ') %>
+                <% else %>
+                    Anonymous
+                <% end %>
+                on <%= article.created_at %>
               </div>
             </div>
           </div>
