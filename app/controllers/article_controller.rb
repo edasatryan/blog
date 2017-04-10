@@ -20,6 +20,16 @@ class ArticleController < ApplicationController
     redirect_to '/home'
   end
 
+  def delete
+    DeleteArticleCommand.new(params).execute
+    @articles = Article.all
+    respond_to do |format|
+        format.html { redirect_to '/home'}
+        format.json
+      end
+    # end
+  end
+
   private
   def save_file (file,file_name)
     directory = Rails.application.config.x.file.path
@@ -38,5 +48,7 @@ class ArticleController < ApplicationController
 
     return option
   end
+
+
 
 end

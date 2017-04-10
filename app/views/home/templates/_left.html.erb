@@ -3,7 +3,7 @@
       <div id = "article<%= article.id %>" class="widget">
         <% unless article.image_name.blank? %>
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12"><button  class ="btn btn-danger article-delete-button" onclick="deleteArticle('<%==article.id%>')">Delete</button>
               <%= image_tag('upload/' + article.image_name, :alt => article.image_name, :width => "100%") %>
             </div>
           </div>
@@ -31,6 +31,7 @@
             </div>
           </div>
         </div>
+
       </div>
 
   <% end %>

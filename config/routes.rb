@@ -28,4 +28,5 @@ Rails.application.routes.draw do
 
   get '/article' => 'article#show'
   post '/article' => 'article#create'
+  delete '/article' => 'article#delete'
 end
