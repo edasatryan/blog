@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'users/invite', to: 'users#invite'
   post 'users/send', to: 'users#send_invitation'
+  get 'users/send', to: 'users#invite'
   get 'users', to: 'users#new'
   post 'users', to: 'users#create'
 
@@ -23,9 +24,10 @@ Rails.application.routes.draw do
   # adds a new article
   delete '/api/v1/articles/:id' => 'api/v1/article_api#delete_article'
 
-  get '/article' => 'article#show'
-  post '/article' => 'article#create'
-  delete '/article' => 'article#delete'
+  # get '/article' => 'article#show'
+  get 'articles', to: 'article#show'
+  post 'articles', to: 'article#create'
+  delete 'articles', to: 'article#delete'
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

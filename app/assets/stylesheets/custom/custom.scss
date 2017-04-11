@@ -173,3 +173,19 @@ label {
   margin-bottom: 0px;
   font-size: 14px;
 }
+.error-message-header {
+  color: red;
+}
+.error-message {
+  font-size: 13px;
+  margin-left: 45px;
+  color: red;
+}
+.error-message li {
+  color: red;
+  padding: 1px;
+  border-bottom: 0px;
+}
+.required {
+  color: red;
+}

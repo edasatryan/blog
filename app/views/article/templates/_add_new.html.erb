@@ -5,22 +5,22 @@
 <!--Add new-->
 <!--</button>-->
 
-  <%= form_for @form_name, :html => {:multipart => true, :remote => true} do |f| %>
+  <%= form_for @article_item do |f| %>
+    <%= render 'errors/validation_errors', errors: @article_item.errors  %>
       <div class="form-group">
-        <label for="title">Title*</label>
-
+        <%= f.label :title, "Title <span class='required'>*</span>".html_safe  %>
         <div class="controls">
           <%= f.text_field :title, class: 'form-control' %>
         </div>
       </div>
       <div class="form-group">
-        <label for="title">Content*</label>
+        <%= f.label :content, "Content <span class='required'>*</span>".html_safe  %>
         <div class="controls">
           <%= f.text_field :content, class: 'form-control' %>
         </div>
       </div>
       <div class="form-group">
-        <label for="title">Video URL*</label>
+        <%= f.label :video, "Video URL <span class='required'>*</span>".html_safe  %>
         <div class="controls">
           <%= f.text_field :video, class: 'form-control' %>
         </div>
@@ -31,7 +31,7 @@
 
       </div>
     <div class="form-group">
-      <%= f.label :file %>
+      <%= f.label :file, "File".html_safe  %>
       <div class="controls">
         <%= f.file_field :file, class: 'form-control' %>
       </div>

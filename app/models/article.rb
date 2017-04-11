@@ -4,7 +4,7 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
-  validates :image_name, presence: true
+  validates :image_name, presence: false
   validates :video, presence: false, :url => true
 
 end

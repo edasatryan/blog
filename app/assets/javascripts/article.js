@@ -21,7 +21,7 @@ function addNewArticle() {
 }
 
 function deleteArticle(id) {
-    var url = '/article';
+    var url = '/articles';
     $.ajax({
         url: url,
         method: 'DELETE',
