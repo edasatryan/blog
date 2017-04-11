@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       #
       respond_to do |format|
         InvitationMailer.invitation_email(@user).deliver
-        flash[:success] = 'Invitation to User is successfully sent.'
+        flash[:success] = 'Invitation to User is successfully sent by email.'
         format.html { redirect_to '/' }
         format.json { render :show, status: :created, location: @user }
 
