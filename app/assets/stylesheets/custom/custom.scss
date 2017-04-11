@@ -152,3 +152,24 @@ label {
   position: absolute;
   left: 92%;
 }
+.navbar-text {
+  color: #777;
+}
+@media (min-width: 768px) {
+  .navbar-right {
+    float: right!important;
+    margin-right: -15px;
+  }
+}
+@media (min-width: 768px) {
+  .navbar-text {
+    float: left;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+}
+.navbar-text {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 14px;
+}
