@@ -18,7 +18,14 @@ class UsersController < ApplicationController
 
   # create user
   def create
-
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = "Welcome to Blog App!"
+      session[:user_id] = @user.id
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   # Send invitation email
@@ -48,6 +55,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:first_name, :username)
+    params.require(:user).permit(:first_name, :last_name, :password, :username)
   end
 end
