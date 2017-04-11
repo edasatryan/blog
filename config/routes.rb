@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
-  # resources :users
 
   get 'users/index'
-  get 'users/show'
-  get 'users/invite'
-  get 'users/new'
-  get 'users/edit'
-  post 'users/create'
-  get 'users/update'
-  get 'users/destroy'
+  get 'users/invite', to: 'users#invite'
+  post 'users/send', to: 'users#send_invitation'
+  get 'users', to: 'users#new'
+  post 'users', to: 'users#create'
 
   get 'home/index'
 
