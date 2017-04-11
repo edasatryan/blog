@@ -10,8 +10,10 @@
         <%= link_to 'Invite', '/users/invite', { :class=>"btn btn-outline-success my-2 my-sm-0" } %>
       </form>
       <% if logged_in? %>
-          <label class="btn btn-outline-success my-2 my-sm-0">(<%= [current_user.first_name, current_user.last_name].join(', ') %>) <%= link_to "Logout", logout_path, :method => :delete %></label>
-      <% else %>
+          <!--<label class="btn btn-outline-success my-2 my-sm-0">(<%= [current_user.first_name, current_user.last_name].join(', ') %>) <%= link_to "Logout", logout_path, :method => :delete %></label>-->
+          <p class="navbar-text navbar-right ">(<%= [current_user.first_name, current_user.last_name].join(', ') %>) <%= link_to "Logout", logout_path, :method => :delete %></p>
+
+    <% else %>
           <%= link_to "Login", login_path, :class => "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>
     </div>

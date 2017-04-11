@@ -1,11 +1,13 @@
 <div class="col-sm-8 blog-main ">
   <% articles.each do |article| %>
       <div id = "article<%= article.id %>" class="widget">
-        <div class="row">
-          <div class="col-sm-12">
-            <button class="btn btn-danger article-delete-button" onclick="deleteArticle('<%==article.id%>')">Delete</button>
-          </div>
-        </div>
+        <% if article.user == @current_user %>
+            <div class="row">
+              <div class="col-sm-12">
+                <button class="btn btn-danger article-delete-button" onclick="deleteArticle('<%==article.id%>')">Delete</button>
+              </div>
+            </div>
+        <% end %>
         <% unless article.image_name.blank? %>
           <div class="row">
             <div class="col-sm-12">
