@@ -1,7 +1,7 @@
 <div class="col-sm-8 blog-main ">
   <% articles.each do |article| %>
       <div id = "article<%= article.id %>" class="widget">
-        <% if article.user == @current_user %>
+        <% if logged_in? && article.user == current_user %>
             <div class="row">
               <div class="col-sm-12">
                 <button class="btn btn-danger article-delete-button" onclick="deleteArticle('<%==article.id%>')">Delete</button>

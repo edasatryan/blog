@@ -28,11 +28,12 @@ class UsersController < ApplicationController
       #
       respond_to do |format|
         InvitationMailer.invitation_email(@user).deliver
-        format.html { redirect_to '/', notice: 'User was successfully created.' }
+        format.html { redirect_to '/', success: 'Invitation to User is successfully sent.' }
         format.json { render :show, status: :created, location: @user }
 
       end
     rescue
+      flash[:danger] = 'An error exists during processing'
       redirect_to '/users/invite'
     end
 

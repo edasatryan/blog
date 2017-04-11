@@ -1,26 +1,30 @@
 <div class="container">
   <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-    <a class="navbar-brand" href="#">Home</a>
+    <%= link_to  'HOME', '/home',class: 'navbar-brand'%>
+
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
       </ul>
       <form class="form-inline mt-2 mt-md-0">
-        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Invite</button>-->
         <%= link_to 'Invite', '/users/invite', { :class=>"btn btn-outline-success my-2 my-sm-0" } %>
       </form>
       <% if logged_in? %>
-          <!--<label class="btn btn-outline-success my-2 my-sm-0">(<%= [current_user.first_name, current_user.last_name].join(', ') %>) <%= link_to "Logout", logout_path, :method => :delete %></label>-->
           <p class="navbar-text navbar-right ">(<%= [current_user.first_name, current_user.last_name].join(', ') %>) <%= link_to "Logout", logout_path, :method => :delete %></p>
-
     <% else %>
           <%= link_to "Login", login_path, :class => "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>
     </div>
   </nav>
 </div>
-
-
 <div class="container">
-  <h1 class="blog-title header-part">Blog</h1>
+  <div class="row">
+    <div  class="col-sm-12">
+      <h1 class="blog-title header-part">Blog</h1>
+
+      <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
+  </div>
 </div>

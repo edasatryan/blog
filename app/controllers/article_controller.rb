@@ -11,22 +11,31 @@ class ArticleController < ApplicationController
 
     begin
       option = initialize_article(params[:article])
-      AddArticleCommand.new(option).execute
+      AddArticleCommand.new(option,current_user).execute
       save_file(file,option['image_name'])
+      flash[:success] = 'New article is successfully created'
+      redirect_to '/home'
     rescue
-      raise
+      flash[:danger] = 'An error exists during processing'
+      redirect_to '/article'
+
     end
 
-    redirect_to '/home'
   end
 
   def delete
-    DeleteArticleCommand.new(params).execute
-    @articles = Article.all
-    respond_to do |format|
+    begin
+      DeleteArticleCommand.new(params).execute
+      @articles = Article.all
+      flash[:success] = 'Article is successfully deleted'
+      respond_to do |format|
         format.html { redirect_to '/home'}
         format.json
       end
+    rescue
+      flash[:danger] = 'Article can not be deleted'
+      raise
+    end
     # end
   end
 
@@ -36,7 +45,7 @@ class ArticleController < ApplicationController
     name = file_name
     path = File.join(directory, name)
     File.open(path, 'wb') { |f| f.write(file.read) }
-    flash[:notice] = "File uploaded"
+
   end
 
   def initialize_article(params)
