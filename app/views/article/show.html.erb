@@ -1,8 +1,59 @@
 <div class="row ">
+  <div class="col-sm-12  widget">
+    <div class="headline">
+      <h4> <%= @article.title %></h4>
+    </div>
+    <!-- Blog -->
+    <% if logged_in? && @article.user == current_user %>
+        <div class="row">
+          <div class="col-sm-12">
+            <button class="btn btn-danger article-delete-button" onclick="deleteArticle('<%==@article.id%>')">Delete</button>
+          </div>
+        </div>
+    <% end %>
+    <% unless @article.image_name.blank? %>
+        <div class="row">
+          <div class="col-sm-12">
+            <%= image_tag('upload/' + @article.image_name, :alt => @article.image_name, :width => '100%') %>
+          </div>
+        </div>
+    <% end %>
+    <div class="sub-widget">
+      <div class="row ">
+        <div class="col-sm-12">
+          <div class="posted-on">
+            By
+            <% unless @article.user.blank? %>
+                <%= [@article.user.first_name, @article.user.last_name].join(', ') %>
+            <% else %>
+                Anonymous
+            <% end %>
+            on <%= @article.created_at %>
+          </div>
+        </div>
+      </div>
+      <div class="row marde-top-10">
+        <div class="col-sm-12">
+          <span class="blog-content"><%= @article.content %></span>
+        </div>
+      </div>
+    </div>
+    <%= link_to 'Back', home_path %>
+    <br><br>
+    <!-- Comments list -->
+    <div class="row">
+      <h4>Comments</h4>
+    </div>
+    <%= render @article.comments %>
+    <!-- -->
+  </div>
+</div>
+<!-- Add comment-->
+<div class="row ">
   <div class="col-sm-7 offset-sm-2 widget">
     <div class="headline">
-      <h3>Add new</h3>
+      <h3>Add comment</h3>
     </div>
-    <%= render 'article/templates/add_new',article: @article  %>
+    <%= render 'comments/form' %>
   </div>
 </div>

@@ -1,0 +1,24 @@
+<%= form_for([@article, @article.comments.build ]) do |f| %>
+    <%= render 'errors/validation_errors', errors: @article.errors  %>
+    <div class="form-group">
+      <%= f.label :name, "Name <span class='required'>*</span>".html_safe  %>
+      <div class="controls">
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, "Email <span class='required'>*</span>".html_safe  %>
+      <div class="controls">
+        <%= f.text_field :email, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :body, "Body <span class='required'>*</span>".html_safe  %>
+      <div class="controls">
+        <%= f.text_area :body, class: 'form-control custom-text-area' %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit class: 'btn btn-success float-right'%>
+    </div>
+<% end %>

@@ -7,4 +7,5 @@ class Article < ApplicationRecord
   validates :image_name, presence: false
   validates :video, presence: false, :url => true
 
+  has_many :comments, dependent: :destroy
 end

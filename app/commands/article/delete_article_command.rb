@@ -1,5 +1,5 @@
 class DeleteArticleCommand < ParentCommand
-  # Intializes a new instance of the class from the specified hash.
+  # Initializes a new instance of the class from the specified hash.
   #
   def initialize(options)
     @id = options['id']

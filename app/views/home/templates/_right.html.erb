@@ -5,7 +5,9 @@
         <h4 class="add-new-article">Recent Posts <%= link_to  'Add new', articles_url %></h4>
         <ul class="list-unstyled">
           <% articles.each do |article| %>
-              <li><a href="#article<%= article.id %>"><%= article.title %></a></li>
+              <li>
+                <%= link_to article.title, articles_path + '/' + article.id.to_s %>
+              </li>
           <% end %>
         </ul>
       </div>

@@ -1,5 +1,5 @@
 class AddArticleCommand < ParentCommand
-  # Intializes a new instance of the class from the specified hash.
+  # Initializes a new instance of the class from the specified hash.
   #
   def initialize(options,current_user)
     @article = Article.new()
