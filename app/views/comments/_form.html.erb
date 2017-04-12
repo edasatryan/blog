@@ -1,24 +1,23 @@
-<%= form_for([@article, @article.comments.build ]) do |f| %>
-    <%= render 'errors/validation_errors', errors: @article.errors  %>
-    <div class="form-group">
-      <%= f.label :name, "Name <span class='required'>*</span>".html_safe  %>
-      <div class="controls">
-        <%= f.text_field :name, class: 'form-control' %>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+    <%= render 'errors/validation_errors', errors: @article.errors %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
+      </div>
+      <div class="col-md-3">
+        <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
+      </div>
+      <div class="col-md-1 actions">
+        <%= f.submit 'Add', class: 'btn btn-success float-right' %>
       </div>
     </div>
-    <div class="form-group">
-      <%= f.label :email, "Email <span class='required'>*</span>".html_safe  %>
-      <div class="controls">
-        <%= f.text_field :email, class: 'form-control' %>
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+        <%= f.label :body, ' ', class: 'required' %>
       </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :body, "Body <span class='required'>*</span>".html_safe  %>
-      <div class="controls">
+      <div class="col-md-5">
         <%= f.text_area :body, class: 'form-control custom-text-area' %>
       </div>
-    </div>
-    <div class="actions">
-      <%= f.submit class: 'btn btn-success float-right'%>
     </div>
 <% end %>
