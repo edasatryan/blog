@@ -186,6 +186,10 @@ label {
   padding: 1px;
   border-bottom: 0px;
 }
-.required {
+label.required:after {
+  content: " *";
   color: red;
 }
+//.required {
+//  color: red;
+//}

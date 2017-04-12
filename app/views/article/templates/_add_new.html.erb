@@ -8,19 +8,19 @@
   <%= form_for @article_item do |f| %>
     <%= render 'errors/validation_errors', errors: @article_item.errors  %>
       <div class="form-group">
-        <%= f.label :title, "Title <span class='required'>*</span>".html_safe  %>
+        <%= f.label :title, 'Title', class: 'required' %>
         <div class="controls">
           <%= f.text_field :title, class: 'form-control' %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :content, "Content <span class='required'>*</span>".html_safe  %>
+        <%= f.label :content, 'Content', class: 'required' %>
         <div class="controls">
           <%= f.text_field :content, class: 'form-control' %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :video, "Video URL <span class='required'>*</span>".html_safe  %>
+        <%= f.label :video, 'Video URL', class: 'required' %>
         <div class="controls">
           <%= f.text_field :video, class: 'form-control' %>
         </div>

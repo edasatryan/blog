@@ -25,14 +25,14 @@
           <%= render 'errors/validation_errors', errors: @user.errors,fields_list:['first_name','username']  %>
 
           <div class="form-group">
-            <%= f.label :first_name, "Name <span class='required'>*</span>".html_safe  %>
+            <%= f.label :first_name, 'Name', class: 'required' %>
 
             <div class="controls">
               <%= f.text_field :first_name, class: 'form-control' %>
             </div>
           </div>
           <div class="form-group">
-            <%= f.label :username, "Email <span class='required'>*</span>".html_safe  %>
+            <%= f.label :username, 'Email', class: 'required' %>
 
             <div class="controls">
               <%= f.text_field :username, class: 'form-control' %>
