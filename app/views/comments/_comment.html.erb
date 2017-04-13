@@ -2,7 +2,7 @@
   <div class="form-group row">
     <div class="col-12">
       <label class="posted-on"> <%= comment.created_at %></label>
-      <label class="col-8 col-form-label"><%= comment.name %>( <%= comment.email %>)</label>
+      <label class="col-8 col-form-label"><%= comment.name %> <%= ("#{format("(%s", comment.email)}" unless comment.email.to_s=='')%></label>
     </div>
     <div class="col-12">
       <%= comment.body %>

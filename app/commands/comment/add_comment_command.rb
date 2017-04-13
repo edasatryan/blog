@@ -2,7 +2,7 @@ class AddCommentCommand < ParentCommand
   # Initializes a new instance of the class from the specified hash.
   #
   def initialize(options)
-    @comment = Comment.where(id: options['id']).first!
+    @comment.article_id = options['article_id']
     @comment.name = options['name']
     @comment.email = options['email']
     @comment.body = options['body']
