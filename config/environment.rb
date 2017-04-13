@@ -5,4 +5,4 @@ require_relative 'application'
 Rails.application.initialize!
 
 # Uploaded file location
-Blog::Application.config.x.file.path = 'app/assets/images/upload'
+Blog::Application.config.x.file.path = 'public/images/upload'
