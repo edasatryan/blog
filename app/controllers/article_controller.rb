@@ -15,9 +15,9 @@ class ArticleController < ApplicationController
     file = params[:article][:file]
 
     if @article.validate
-      option = initialize_article(params[:article])
-      AddArticleCommand.new(option).execute
-      save_file(file,option['image_name']) unless file
+      options = initialize_article(params[:article])
+      Article::AddArticleCommand.new(options).execute
+      save_file(file,option['image_name']) if file
       flash[:success] = 'New article is successfully created'
       redirect_to home_path
     else
@@ -55,10 +55,8 @@ class ArticleController < ApplicationController
     option['title']= params[:title]
     option['content'] = params[:content]
     option['video'] = params[:video]
-    option['user_id'] = current_user?current_user.id :''
-    if (!params[:file].nil?)
-      option['image_name'] = Time.now.to_i.to_s+ '_' + params[:file].original_filename
-    end
+    option['user_id'] = current_user.id unless current_user.nil?
+    option['image_name'] = Time.now.to_i.to_s+ '_' + params[:file].original_filename unless params[:file].nil?
 
     return option
   end

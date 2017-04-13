@@ -169,22 +169,22 @@ label {
   }
 }
 .navbar-text {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
   font-size: 14px;
 }
 .error-message-header {
   color: red;
 }
 .error-message {
-  font-size: 13px;
+  font-size: 12px;
   margin-left: 45px;
   color: red;
 }
 .error-message li {
   color: red;
-  padding: 1px;
-  border-bottom: 0px;
+  padding: 0;
+  border-bottom: 0;
 }
 label.required:after {
   content: " *";

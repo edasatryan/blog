@@ -1,5 +1,7 @@
 <%= form_for([@article, @article.comments.build]) do |f| %>
-    <%= render 'errors/validation_errors', errors: @article.errors %>
+    <% if !@comment.nil? %>
+        <%= render 'errors/validation_errors', errors: @comment.errors %>
+    <% end %>
     <div class="row">
       <div class="col-md-3">
         <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>

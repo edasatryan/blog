@@ -5,8 +5,9 @@ class CommentsController < ApplicationController
     @comment.article_id = params[:article_id]
     if @comment.validate
       @article.comments.create(comment_params)
+    else
+      render 'article/show'
     end
-    redirect_to article_path(@article)
   end
 
   def destroy
