@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def send_invitation
     begin
       @user = User.new(user_params)
-      if (@user.validate)
+      if @user.validate
         respond_to do |format|
           InvitationMailer.invitation_email(@user).deliver
           flash[:success] = 'Invitation to User is successfully sent by email.'
@@ -67,6 +67,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :password, :username)
+    params.require(:user).permit(:first_name, :last_name, :password,:password_confirmation, :username)
   end
 end

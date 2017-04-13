@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
-  namespace :api do
-    namespace :v1 do
-      get 'comments_api/create'
-    end
-  end
+  # namespace :api do
+  #   namespace :v1 do
+  #     get 'comments_api/create'
+  #   end
+  # end
 
-  get 'comments_api/create'
-
-  get 'comments_a_pi/create'
+  # get 'comments_api/create'
+  #
+  # get 'comments_a_pi/create'
 
   resources :article do
     resources :comments
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   # get '/article' => 'article#add'
   get 'articles', to: 'article#add'
-  get 'articles/:id', :to => 'article#show'
+  get 'articles/:id', to: 'article#show'
   post 'articles', to: 'article#create'
   delete 'articles', to: 'article#delete'
 

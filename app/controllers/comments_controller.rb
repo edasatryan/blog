@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = Comment.new(comment_params)
     @comment.article_id = params[:article_id]
-    if(@comment.validate)
+    if @comment.validate
       @article.comments.create(comment_params)
     end
     redirect_to article_path(@article)

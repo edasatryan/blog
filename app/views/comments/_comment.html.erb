@@ -7,7 +7,7 @@
     <div class="col-12">
       <%= comment.body %>
     </div>
-    <% if logged_in? && article.user == current_user %>
+    <% if logged_in? && @article.user == current_user %>
       <div class="col-5">
         <%= link_to 'Remove', [comment.article, comment],
                     method: :delete,

@@ -5,8 +5,8 @@
 <!--Add new-->
 <!--</button>-->
 
-  <%= form_for @article_item do |f| %>
-    <%= render 'errors/validation_errors', errors: @article_item.errors  %>
+  <%= form_for @article do |f| %>
+    <%= render 'errors/validation_errors', errors: @article.errors  %>
       <div class="form-group">
         <%= f.label :title, 'Title', class: 'required' %>
         <div class="controls">

@@ -3,7 +3,7 @@ class ArticleController < ApplicationController
 
   #
   def add
-    @article_item = Article.new
+    @article= Article.new
   end
 
   def show
@@ -11,17 +11,17 @@ class ArticleController < ApplicationController
   end
 
   def create
-    @article_item = Article.new(article_params)
+    @article = Article.new(article_params)
     file = params[:article][:file]
 
-    if (@article_item.validate)
+    if @article.validate
       option = initialize_article(params[:article])
-      AddArticleCommand.new(option,current_user).execute
+      AddArticleCommand.new(option).execute
       save_file(file,option['image_name']) unless file
       flash[:success] = 'New article is successfully created'
       redirect_to home_path
     else
-      render 'show'
+      render 'add'
     end
   end
 
@@ -55,6 +55,7 @@ class ArticleController < ApplicationController
     option['title']= params[:title]
     option['content'] = params[:content]
     option['video'] = params[:video]
+    option['user_id'] = current_user?current_user.id :''
     if (!params[:file].nil?)
       option['image_name'] = Time.now.to_i.to_s+ '_' + params[:file].original_filename
     end
