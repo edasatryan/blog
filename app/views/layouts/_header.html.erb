@@ -7,6 +7,7 @@
       <ul class="navbar-nav mr-auto">
       </ul>
       <% if logged_in? %>
+          <%= link_to 'Admin', admins_articles_path, class: 'btn btn-outline-success my-2 my-sm-0' %>
           <%= link_to 'Invite', users_invite_path, class: 'btn btn-outline-success my-2 my-sm-0' %>
           <p class="navbar-text navbar-right ">(<%= [current_user.first_name, current_user.last_name].join(', ') %>) <%= link_to "Logout", logout_path, :method => :delete %></p>
       <% else %>
@@ -18,8 +19,6 @@
 <div class="container">
   <div class="row">
     <div  class="col-sm-12">
-      <h1 class="blog-title header-part">Blog</h1>
-
       <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
