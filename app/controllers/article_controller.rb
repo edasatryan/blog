@@ -1,13 +1,12 @@
 class ArticleController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  #
   def add
     @article= Article.new
   end
 
   def show
-    @article = @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def create
@@ -17,7 +16,7 @@ class ArticleController < ApplicationController
     if @article.validate
       options = initialize_article(params[:article])
       Article::AddArticleCommand.new(options).execute
-      save_file(file,option['image_name']) if file
+      save_file(file, options['image_name']) if file
       flash[:success] = 'New article is successfully created'
       redirect_to home_path
     else

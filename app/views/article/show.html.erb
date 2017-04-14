@@ -14,7 +14,7 @@
     <% unless @article.image_name.blank? %>
         <div class="row">
           <div class="col-sm-12">
-            <%= image_tag('upload/' + @article.image_name, :alt => @article.image_name, :width => '100%') %>
+            <%= image_tag("#{Blog::Application.config.x.file.path_to_read}#{@article.image_name}", :alt => @article.image_name, :width => '100%') %>
           </div>
         </div>
     <% end %>

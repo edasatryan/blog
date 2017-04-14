@@ -6,3 +6,4 @@ Rails.application.initialize!
 
 # Uploaded file location
 Blog::Application.config.x.file.path = 'public/images/upload'
+Blog::Application.config.x.file.path_to_read = 'upload/'
