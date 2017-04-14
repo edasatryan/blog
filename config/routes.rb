@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   # get 'comments_api/create'
   #
   # get 'comments_a_pi/create'
-
   resources :article do
     resources :comments
   end
@@ -48,4 +47,8 @@ Rails.application.routes.draw do
 
   # adds a new article
   delete '/api/v1/article/:id' => 'api/v1/article_api#delete_article'
+
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
+
 end

@@ -3,7 +3,12 @@ class Api::V1::ApplicationApiController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :on_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :on_validation_error
   rescue_from StandardError, with: :on_error
-  
+
+  # You want to get exceptions in development, but not in production.
+  # if Rails.application.config.consider_all_requests_local
+  #   rescue_from ActionController::RoutingError, with: -> { on_not_found  } #render_404
+  # end
+
   # rescue_from 'MyAppError::Base' do |error|
   #   render xml: exception, status: 500
   # end
@@ -30,7 +35,7 @@ class Api::V1::ApplicationApiController < ActionController::API
   end
 
   def on_not_found
-    Rails.logger.error(error)
+    #Rails.logger.error(error)
     fail(404, 'resource not found')
   end
 
