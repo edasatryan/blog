@@ -22,8 +22,12 @@ class DeleteArticleCommand < ParentCommand
       # get article by id
       @article = Article.where(id: @id).first!
 
-      # delete file from system
-      File.delete(Rails.application.config.x.file.path + '/' + @article.image_name)
+      # check if file exist
+      if !@article.image_name.nil? && File.exist?(Rails.application.config.x.file.path + '/' + @article.image_name)
+        # delete file from system
+        File.delete(Rails.application.config.x.file.path + '/' + @article.image_name)
+      end
+
 
       # delete article from database
       @article.destroy

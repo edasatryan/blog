@@ -26,7 +26,7 @@ class ArticleController < ApplicationController
 
   def delete
     begin
-      DeleteArticleCommand.new(params).execute
+      Article::DeleteArticleCommand.new(params).execute
       @articles = Article.all
       flash[:success] = 'Article is successfully deleted'
       respond_to do |format|
