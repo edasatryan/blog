@@ -21,13 +21,19 @@ function addNewArticle() {
 }
 
 function deleteArticle(id) {
-    var url = '/articles';
+    var url = '/api/v1/article/' +id;
     $.ajax({
         url: url,
         method: 'DELETE',
         contentType: 'application/json',
-        data:JSON.stringify({id:id}),
+        dataType: "html",
+        // data:JSON.stringify({id:id}),
         success: function(result) {
+            // alert(result)
+            // $('#article'+ id).html('');
+            // $('#articleLi'+ id).html('');
+            document.getElementById("article"+ id).remove();
+            document.getElementById("articleLi"+ id).remove();
         }
     })
 }

@@ -29,10 +29,12 @@ class ArticleController < ApplicationController
       Article::DeleteArticleCommand.new(params).execute
       @articles = Article.all
       flash[:success] = 'Article is successfully deleted'
-      respond_to do |format|
-        format.html { redirect_to '/home'}
-        format.json
-      end
+      # respond_to do |format|
+      #   format.html { redirect_to '/home'}
+      #   format.json
+      # end
+
+      render plain: "OK"
     rescue
       flash[:danger] = 'Article can not be deleted'
       raise
