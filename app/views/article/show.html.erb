@@ -11,12 +11,19 @@
           </div>
         </div>
     <% end %>
-    <% unless @article.image_name.blank? %>
-        <div class="row">
-          <div class="col-sm-12">
-            <%= image_tag("#{Blog::Application.config.x.file.path_to_read}#{@article.image_name}", :alt => @article.image_name, :width => '100%') %>
-          </div>
-        </div>
+    <% unless @article.image_name.blank? && @article.video.blank? %>
+      <div class="row">
+        <% unless @article.image_name.blank? %>
+            <div class="<%= @article.video.blank? ? 'col-sm-12' : 'col-sm-6' %>">
+              <%= image_tag("#{Blog::Application.config.x.file.path_to_read}#{@article.image_name}", :alt => @article.image_name, :width => '100%') %>
+            </div>
+        <% end %>
+        <% unless @article.video.blank? %>
+            <div class="<%= @article.image_name.blank? ? 'col-sm-12' : 'col-sm-6' %>">
+              <span class="blog-content"><%= (embeded_video_string @article.video, '100%', 300).html_safe %></span>
+            </div>
+        <% end %>
+      </div>
     <% end %>
     <div class="sub-widget">
       <div class="row ">
