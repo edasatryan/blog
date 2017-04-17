@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def invite
-    @user = User.new
+    @invitation = Invitation.new
   end
 
   # GET /users/new
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to Blog App!"
+      flash[:success] = 'Welcome to Blog App!'
       session[:user_id] = @user.id
       redirect_to root_path
     else
@@ -32,19 +32,19 @@ class UsersController < ApplicationController
   # Send invitation email
   def send_invitation
     begin
-      @user = User.new(user_params)
-      if @user.validate
-        respond_to do |format|
-          InvitationMailer.invitation_email(@user).deliver
-          flash[:success] = 'Invitation to User is successfully sent by email.'
-          format.html { redirect_to home_url }
-          # format.json { render :show, status: :created, location: @user }
-        end
+      @invitation = Invitation.new(invitation_params)
+      if @invitation.valid?
+        MailerProvider.invitation_email(@invitation).deliver
+        flash[:success] = "An invitation to #{@invitation.name} has been sent successfully."
+        redirect_to root_path
       else
         render 'invite'
       end
-    rescue
-      flash[:danger] = 'An error exists during processing'
+    rescue => e
+      puts '###################################### ERROR MESSAGE ###'
+      puts e.message
+      puts '########################################################'
+      flash[:danger] = 'An error occurred during processing'
       redirect_to users_invite_url
     end
   end
@@ -68,5 +68,9 @@ class UsersController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:first_name, :last_name, :password,:password_confirmation, :username)
+  end
+
+  def invitation_params
+    params.require(:invitation).permit(:name, :email)
   end
 end

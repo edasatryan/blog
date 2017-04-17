@@ -1,0 +1,4 @@
+Hi <%= @invitation.name %>
+This is to inform you, that you have been invited to http://localhost:3000/.
+To proceed with registration press on the link below, or just copy and paste in your favorite
+browser's address: <%= link_to users_url(host: "localhost:3000"), users_url(host: "localhost:3000") %>
